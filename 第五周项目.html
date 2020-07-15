@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>项目二任务一</title>
+    <title>第五周项目</title>
     <link rel="stylesheet" href="./index.css">
     <style>
 #nav {
@@ -27,6 +27,58 @@
     </style>
 </head>
 <body>
+    <div class="mian" >
+        <div class="head_mav" >
+            <div class="head_top"   >
+  
+    <div style="float:right";class="head_mav">
+    <script type="text/javascript">
+                //用户名不能以数字开头，长度=不低于0，不高于10
+                onload = function(){
+                    var use = document.getElementById('use');
+                    var pw = document.getElementById('pw');
+                    var sub = document.getElementById('sub');
+                    var regExp = /^[0-9a-zA-Z_]{1,}$/;
+                    sub.onclick = function(){
+                        var useName = use.value;
+                        var paw = pw.value;
+                        // console.log(useName[0].charCodeAt() == 48);//
+                        if(useName == "admin" && paw == "admin123"){
+                                alert('登录成功');
+                        }else if(useName[0].charCodeAt() <= 57 && useName[0].charCodeAt() >= 48){
+                                alert('登录失败');
+                        }else if( (useName.length) < 0 || (useName.length) > 10){
+                                alert('登录失败');
+                        }else if(regExp.test(use)){
+                                alert('登录失败');
+                            }else{
+                                alert('登录失败')
+                            }
+                    }
+                }
+    </script>
+    <script type="text/javascript">
+    function formReset()
+    {
+    document.getElementById("myForm").reset()
+    }
+    </script>
+    <form id="myForm">
+       用户名：<input type="text" name="" id="use" placeholder="输入用户名" value="" maxlength="10">
+       密码：  <input type="password" name="" id="pw" placeholder="输入密码" value="" maxlength="10">
+       <input type="submit" name="" id="sub"  value="登录">
+       <input type="button" onclick="formReset()" value="重置">
+    </form></div>
+    
+    <div class="time">     <script type="text/javascript">
+        var d = new Date(); 
+        var ymd = d.getFullYear() + "年" + (d.getMonth()+1) + "月" + d.getDate()+ "日",
+                week = ['日', '一', '二', '三', '四', '五', '六'];  
+        document.write(""+ ymd +" " + "星期" + week[d.getDay()] + "");
+    </script></div>
+ 
+</div></div></div>
+
     <div class="container">
         <div class="wrap" style="left: -1350px;">
             <img src="滑动图片素材\slide-5.jpg" alt="5">
@@ -49,7 +101,12 @@
     </div>
     <script src="./index.js"></script>
     <div id="nav">
-        <h2>加快打通空路，深挖文旅项目-荆州工程疫后重启“复兴大道”</h2>
+
+        <h2 > 
+        <a href="详情页.html" " target="_blank"  style="color:black" > 加快打通空路，深挖文旅项目-荆州工程疫后重启“复兴大道  </a>
+        
+        </h2>
+
         <br>
         <p>与荆州机场项目建设相连并同步进行的，还有当地的复兴大道工程。这是荆州市正在建设的首条快速交通<br>走廊，也是未来该市铁路、公路、机场、港口综合...<p>
         <p>2020-05-22</p>
@@ -161,7 +218,19 @@
         <div id="footer">
                 <p>[部门专题内容共建] 联系电话：0716-8463333  [网站建设]联系电话：0716-8445200</p>
                 <br>
-                <p>版权归荆州新闻网所有</p>
-                </div>
+                <p>版权归荆州新闻网所有</p></div>
+                <p align="center">
+                    您当前使用的系统是: <span id="jos"></span>，
+                    最佳分辨率为: <span id="jresolution"></span>，
+                    操作系统版本为: <span id="jversion"></span></p>
+                    <script type="text/javascript">
+                    var JSONObject= {
+                    "os":"ios",
+                    "resolution":"1024*768",
+                    "version":"11.4"};
+                    document.getElementById("jos").innerHTML=JSONObject.os
+                    document.getElementById("jresolution").innerHTML=JSONObject.resolution
+                    document.getElementById("jversion").innerHTML=JSONObject.version
+                    </script>
 </body>
 </html>
