@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.1</title>
+  <style>
+    thead th {
+      background-color: lightblue;
+      text-align: left;
+      padding-left: 10px;
+      min-width: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <table id="teble" border="1" cellspacing='0'>
+    <thead>
+      <tr>
+        <th>编号</th>
+        <th>景区名称</th>
+        <th>景区级别</th>
+        <th>景区地址</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <script src="jquery-3.4.1.min.js"></script>
+  <script>
+    $(function () {
+      $.ajax({
+        url: 'data.json',
+        success: function (res) {
+          console.log(res)
+          let places = res.places;
+          let html = ``
+          for (let item of places) {
+            console.log(item)
+            html += `<tr>
+            <td>${item.id}</td>
+            <td>${item.name}</td>
+            <td>${item.景区等级}</td>
+            <td>${item.地址}</td>
+            </tr>
+            `
+          }
+          $('#teble tbody').html(html)
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>
