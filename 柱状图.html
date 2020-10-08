@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>柱状图</title>
+<script src="jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="echarts.min (1).js" ></script>
+
+</head>
+<body>
+    
+    <div id = "main" style="width: 700px; height: 400px;"></div>
+    <script>
+      $(document).ready(function(){
+        //echarts进行初始化
+		var myChart = echarts.init(document.getElementById("main"));
+		myChart.setOption({
+            //图标题
+			title:{text: '近6个月景区游览人次'},
+            //图提示框
+			tootip:{},
+            //图例
+			legend:{
+				data:['旅游人次']
+			},
+            //x轴属性
+			xAxis:{
+				data:[]
+			},
+            //y轴属性
+			yAxis:{},
+			//图属性
+			series:[
+				{
+					name:'旅游人次',
+					type:'bar',//图类型：柱状图					
+					data:[]//图表的数值
+				}
+			]
+		});
+        //使用jQuery中的$.get()获取data.json文件，使用done函数;
+        //done(function(data))中data表示调用的函数返回的数据
+		$.get('count.json').done(function(count){
+			myChart.setOption({
+				xAxis:{
+					data:["4月","5月","6月","7月","8月","9月"]
+				},
+				series:{
+					name:'旅游人次',
+					data:count.count
+				}
+			});
+			
+		});
+		
+				
+		});
+		myChart.setOption(option);
+    </script>
+</body>
+</html>
